@@ -47,10 +47,10 @@ router.put('/:name', async (req, res) => {
 
 router.delete('/:name', async (req, res) => {
   try {
-    await models.Fighter.deleteOne({
+    let status = await models.Fighter.deleteOne({
       name: req.params.name
     });
-    res.status(204).send(`Fighter was successfully deleted.`);
+    res.status(200).json({ status });
   } catch (err) {
     console.log(err);
   }
