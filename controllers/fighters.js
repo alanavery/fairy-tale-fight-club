@@ -4,8 +4,8 @@ const models = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    let allFighters = await models.Fighter.find();
-    res.status(200).json({ allFighters });
+    let data = await models.Fighter.find();
+    res.status(200).json({ data });
   } catch (err) {
     console.log(err);
   }
@@ -22,7 +22,7 @@ router.get('/:name', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/new', async (req, res) => {
   try {
     let fighter = await models.Fighter.create(req.body);
     res.status(201).json({ fighter });
