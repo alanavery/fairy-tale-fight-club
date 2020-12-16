@@ -6,6 +6,7 @@ app.use(express.json());
 
 // Controller
 app.use('/fighters', require('./controllers/fighters'));
+app.use('/battles', require('./controllers/battles'));
 
 // Home route
 app.get('/', (req, res) => {

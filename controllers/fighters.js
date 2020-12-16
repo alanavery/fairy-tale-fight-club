@@ -2,6 +2,15 @@ const router = require('express').Router();
 
 const models = require('../models');
 
+router.get('/', async (req, res) => {
+  try {
+    let allFighters = await models.Fighter.find();
+    res.status(200).json({ allFighters });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.get('/:name', async (req, res) => {
   try {
     let fighter = await models.Fighter.findOne({
@@ -38,10 +47,10 @@ router.put('/:name', async (req, res) => {
 
 router.delete('/:name', async (req, res) => {
   try {
-    let status = await models.Fighter.deleteOne({
+    await models.Fighter.deleteOne({
       name: req.params.name
     });
-    res.status(204).json({ status });
+    res.status(204).send(`Fighter was successfully deleted.`);
   } catch (err) {
     console.log(err);
   }

@@ -17,5 +17,6 @@ db.on('error', (err) => {
 });
 
 module.exports = {
-  Fighter: require('./fighter')
+  Fighter: require('./fighter'),
+  Battle: require('./battle')
 };
