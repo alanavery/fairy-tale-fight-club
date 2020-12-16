@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 // Set up Mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fairyTaleFightClub', {
+mongoose.connect(`${process.env.MONGO_URI}/fairyTaleFightClub`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
