@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.use(cors());
 
-// Controller
+// Controllers
 app.use('/fighters', require('./controllers/fighters'));
 app.use('/battles', require('./controllers/battles'));
 
